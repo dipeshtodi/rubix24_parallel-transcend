@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>PWD Approval Form</title>
+</head>
+
+<body class="bg-gray-100 p-6">
+ 
+    <div class="max-w-md mx-auto bg-white p-8 rounded shadow-md">
+        <h2 class="text-2xl font-semibold mb-6">PWD Approval Form</h2>
+
+        <form id="approvalForm" enctype="multipart/form-data">
+
+            <!-- Name Field -->
+            <div class="mb-4">
+                <label for="name" class="block text-gray-700 font-medium mb-2">Name</label>
+                <input type="text" id="name" name="name" class="w-full border px-3 py-2 rounded focus:outline-none focus:border-blue-500">
+            </div>
+            <div class="mb-4">
+                <label for="name" class="block text-gray-700 font-medium mb-2">Mobile-No</label>
+                <input type="text" id="name" name="name" class="w-full border px-3 py-2 rounded focus:outline-none focus:border-blue-500">
+            </div>
+            <div class="mb-4">
+                <label for="name" class="block text-gray-700 font-medium mb-2">PAN CARD No.</label>
+                <input type="text" id="name" name="name" class="w-full border px-3 py-2 rounded focus:outline-none focus:border-blue-500">
+            </div>
+
+            <!-- Residence Address Field -->
+            <div class="mb-4">
+                <label for="address" class="block text-gray-700 font-medium mb-2">Residence Address (as on Aadhar)</label>
+                <input type="text" id="address" name="address" class="w-full border px-3 py-2 rounded focus:outline-none focus:border-blue-500">
+            </div>
+
+            <!-- Passport Size Photo Field -->
+            <div class="mb-4">
+                <label for="photo" class="block text-gray-700 font-medium mb-2">Passport Size Photo</label>
+                <div class="flex items-center">
+                    <input type="file" id="photo" name="photo" accept=".pdf" class="w-full border px-3 py-2 rounded focus:outline-none focus:border-blue-500">
+                    <button type="button" class="ml-2 text-red-500" id="removePhoto">Remove</button>
+                </div>
+            </div>
+
+            <!-- Medical Certificate Field -->
+            <div class="mb-4">
+                <label for="medicalCertificate" class="block text-gray-700 font-medium mb-2">Medical Certificate</label>
+                <div class="flex items-center">
+                    <input type="file" id="medicalCertificate" name="medicalCertificate" accept=".pdf" class="w-full border px-3 py-2 rounded focus:outline-none focus:border-blue-500">
+                    <button type="button" class="ml-2 text-red-500" id="removeMedicalCertificate">Remove</button>
+                </div>
+            </div>
+
+            <!-- Birth Certificate Field -->
+            <div class="mb-4">
+                <label for="birthCertificate" class="block text-gray-700 font-medium mb-2">Birth Certificate</label>
+                <div class="flex items-center">
+                    <input type="file" id="birthCertificate" name="birthCertificate" accept=".pdf" class="w-full border px-3 py-2 rounded focus:outline-none focus:border-blue-500">
+                    <button type="button" class="ml-2 text-red-500" id="removeBirthCertificate">Remove</button>
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 focus:outline-none focus:border-blue-700 focus:ring focus:ring-blue-200">
+                Submit
+            </button>
+
+        </form>
+    </div>
+
+    <script>
+        
+    </script>
+<script src="script.js"></script>
+</body>
+</html>
