@@ -26,21 +26,64 @@
       <div class="hidden md:flex space-x-4">
         <a href="index.html" class="text-gray-800 hover:text-blue-500">Home</a>
         
-        <a href="" class="text-gray-800 hover:text-blue-500">Listed Job </a>
+        <a href="" class="text-gray-800 hover:text-blue-500">Job Listings</a>
         <a href="" class="text-gray-800 hover:text-blue-500">Community Forums</a>
-        <a href="" class="text-gray-800 hover:text-blue-500">Blogs</a>
-        <a href="" class="text-gray-800 hover:text-blue-500">FAQs</a>
-      </div>
+        <a href="./webrtc-videocall-javascript-master (2)/webrtc-videocall-javascript-master/webrtc-videocall-javascript-master/sender/sender.html" class="text-gray-800 hover:text-blue-500">Mentor Meet</a>
+        
+            <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar" class="text-gray-700 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 pl-3 pr-4 py-2 md:hover:text-blue-700 md:p-0 font-medium flex items-center justify-between w-full md:w-auto">Resources<svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg></button>
+          
+            <div id="dropdownNavbar" class="hidden bg-white text-base z-10 list-none divide-y divide-gray-100 rounded shadow my-4 w-44">
+                <ul class="py-1" aria-labelledby="dropdownLargeButton">
+                    <li>
+                        <a href="#" class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Blogs</a>
+                    </li>
+                    <li>
+                        <a href="faq.html" class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">FAQs</a>
+                    </li>
+                    <!-- <li>
+                        <a href="#" class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Earnings</a>
+                    </li> -->
+                </ul>
+                <!-- <div class="py-1">
+                    <a href="#" class="text-sm hover:bg-gray-100 text-gray-700 block px-4 py-2">Sign out</a>
+                </div> -->
+            </div> 
+        </div>
+<!--         
+       
       <div class="flex items-center">
        
         <button class="text-white bg-blue-500 px-4 py-2 rounded-md"><a href="../login.html">Sign In</a></button>
         
-      </div>
+      </div> -->
+    
+<button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">Sign In<svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+    </svg>
+    </button>
+    
+    <!-- Dropdown menu -->
+    <div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+        <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+          <li>
+            <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">User</a>
+          </li>
+          <li>
+            <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Recruiter</a>
+          </li>
+        </ul>
+    </div>
+    
     </div>
     
   </nav>
+  <!-- component -->
+<!-- This is an example component -->
+
+
+<script src="https://unpkg.com/@themesberg/flowbite@1.1.1/dist/flowbite.bundle.js"></script>
 <div class="container mx-auto mt-16 p-4 m-20 flex justify-center items-center">
-  <div class="middle-box w-1/2 mx-auto"><img src="../images/job_2.jpg" alt=""></div>
+  <div class="middle-box w-1/2 mx-auto"><img src="./img/job_2.jpg" alt=""></div>
 </div>
 <div class="container mx-auto p-4">
   <div class="text-center text-blue-800 font-bold text-2xl mb-4">
@@ -148,8 +191,8 @@
         <ul class="list-disc list-inside">
           <li><a href="ppf.html" class="hover:text-blue-100">Job Listings</a></li>
           <li><a href="cal.html" class="hover:text-blue-100">Community Forums</a></li>
-          <li><a href="#" class="hover:text-blue-100"></a></li>
-          <li><a href="#" class="hover:text-blue-100">Index Funds</a></li>
+          <li><a href="#" class="hover:text-blue-100">Meet Mentor</a></li>
+          <li><a href="#" class="hover:text-blue-100">Legal Resources & FAQs</a></li>
           
         </ul>
       </div>
@@ -194,5 +237,17 @@
       }
   </style>
   <script src="landing.js"></script>
+  <script>
+    window.embeddedChatbotConfig = {
+    chatbotId: "BLzluWMROd8zz26FPfsVk",
+    domain: "www.chatbase.co"
+    }
+    </script>
+    <script
+    src="https://www.chatbase.co/embed.min.js"
+    chatbotId="BLzluWMROd8zz26FPfsVk"
+    domain="www.chatbase.co"
+    defer>
+    </script>
   </body>
 </html>
