@@ -12,10 +12,35 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
+
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   </head>
   <body>
+
+    <nav class="bg-white bg-opacity-75 p-4 fixed w-full top-0 z-50">
+      <div class="container mx-auto flex justify-between items-center">
+        <div class="flex items-center">
+          <h1 class="text-xl font-bold"><a href="index.html">Saksham</h1></a>
+        </div>
+        <div class="hidden md:flex space-x-4">
+          <a href="index.html" class="text-gray-800 hover:text-blue-500">Home</a>
+          
+          <a href="index.html" class="text-gray-800 hover:text-blue-500">Listed Job </a>
+          <a href="" class="text-gray-800 hover:text-blue-500">Community Forums</a>
+          <a href="" class="text-gray-800 hover:text-blue-500">Blogs</a>
+          <a href="" class="text-gray-800 hover:text-blue-500">FAQs</a>
+        </div>
+        <div class="flex items-center">
+         
+          <button class="text-white bg-blue-500 px-4 py-2 rounded-md"><a href="multiuser.html">Sign In</a></button>
+          
+        </div>
+      </div>
+      
+    </nav>
+
     <div class="jobs-list-container">
-      <h2>5 Jobs</h2>
+      <h2>Available Jobs For You</h2>
 
       <input class="job-search" type="text" placeholder="Search here..." />
 
