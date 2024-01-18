@@ -9,46 +9,127 @@ const jobs = [
     },
   
     {
-      title: "Data Scientist",
+      title: "Data Customer Service Representative (CSR)",
       image: "data-scientist.svg",
       details:
-        "Responsible for collecting, analyzing and interpreting large data sets to help organizations make better decisions.",
+        "Handle customer inquiries, resolve issues, and provide excellent service via phone, email, or online chat.",
+      openPositions: "3",
+      link: "#",
+    },
+
+    {
+      title: "Data Entry Clerk",
+      image: "data-scientist.svg",
+      details:
+        "Input and manage data into computer systems, ensuring accuracy and efficiency.",
+      openPositions: "3",
+      link: "#",
+    },
+
+    {
+      title: "Content Writer",
+      image: "data-scientist.svg",
+      details:
+        "Create written content for websites, blogs, or marketing materials. Strong writing skills are essential.",
+      openPositions: "3",
+      link: "#",
+    },
+
+    {
+      title: "Graphic Designer",
+      image: "data-scientist.svg",
+      details:
+        "Design visual content for websites, advertisements, and other media. Proficiency in graphic design software is required.",
+      openPositions: "3",
+      link: "#",
+    },
+
+    {
+      title: "IT Support Specialist",
+      image: "data-scientist.svg",
+      details:
+        "Provide technical assistance and support to end-users, troubleshooting hardware and software issues.",
+      openPositions: "3",
+      link: "#",
+    },
+
+    {
+      title: "Transcriptionist",
+      image: "data-scientist.svg",
+      details:
+        "Listen to audio recordings and convert them into written documents, requiring good listening and typing skills.",
+      openPositions: "3",
+      link: "#",
+    },
+
+    {
+      title: "Virtual Assistant",
+      image: "data-scientist.svg",
+      details:
+        "Assist clients with administrative tasks, scheduling, and managing emails remotely.",
+      openPositions: "3",
+      link: "#",
+    },
+
+    {
+      title: "Social Media Manager",
+      image: "data-scientist.svg",
+      details:
+        " Create and manage content on social media platforms, engage with followers, and analyze performance metrics.",
+      openPositions: "3",
+      link: "#",
+    },
+
+    {
+      title: "Accounting Assistant",
+      image: "data-scientist.svg",
+      details:
+        "Assist with financial tasks such as bookkeeping, invoicing, and data entry.",
       openPositions: "3",
       link: "#",
     },
   
     {
-      title: "Project Manager",
+      title: "Librarian",
       image: "project-manager.svg",
       details:
-        "Responsible for planning, executing and closing projects on time and within budget.",
+        "Organize and manage library resources, assist patrons, and maintain a quiet and accessible environment.",
       openPositions: "1",
       link: "#",
     },
   
     {
-      title: "Product Manager",
+      title: "Telemarketing Representative",
       image: "product-manager.svg",
       details:
-        "Responsible for managing the entire product life cycle, from ideation to launch and post-launch maintenance.",
+        "Make outbound calls to promote products or services and generate sales leads.",
       openPositions: "1",
       link: "#",
     },
   
     {
-      title: "Sales Representative",
+      title: "Freelance Photographer",
       image: "sales-representative.svg",
       details:
-        "Responsible for reaching out to potential customers and closing sales deals.",
+        "Capture images for events, portraits, or stock photography. Physical mobility may not be a significant barrier in some cases.",
       openPositions: "4",
       link: "#",
     },
   
     {
-      title: "Marketing Manager",
+      title: "Online Tutor",
       image: "marketing-manager.svg",
       details:
-        "Responsible for creating and executing marketing strategies to promote a company or product.",
+        "Provide tutoring services in various subjects through online platforms.",
+      openPositions: "1",
+      link: "#",
+    },
+
+    {
+      title: "Medical Transcriptionist",
+      image: "marketing-manager.svg",
+      details:
+        "Transcribe medical records dictated by healthcare professionals, ensuring accuracy and confidentiality.",
       openPositions: "1",
       link: "#",
     },
