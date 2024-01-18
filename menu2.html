@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentor Search</title>
+    <!-- Include Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <nav class="bg-white bg-opacity-75 p-4 fixed w-full top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+          <div class="flex items-center">
+            <h1 class="text-xl font-bold"><a href="landing-page.html">Saksham</h1></a>
+          </div>
+          <div class="hidden md:flex space-x-4">
+            <a href="index.html" class="text-gray-800 hover:text-blue-500">Home</a>
+            
+            <a href="" class="text-gray-800 hover:text-blue-500">Listed Job </a>
+            <a href="" class="text-gray-800 hover:text-blue-500">Community Forums</a>
+            <a href="blog.html" class="text-gray-800 hover:text-blue-500">Blogs</a>
+            <a href="faq.html" class="text-gray-800 hover:text-blue-500">FAQs</a>
+          </div>
+          <div class="flex items-center">
+           
+            <button class="text-white bg-red-500 px-4 py-2 rounded-md"><a href="../login.html">Sign Out</a></button>
+            
+          </div>
+        </div>
+      </nav>
+      <div class="bg-gradient-to-r from-blue-200 via-purple-200 to-pink-200 p-6 rounded-lg shadow-md">
+    <div class="container mx-auto p-4">
+        <!-- Search Bar -->
+        <div class="mb-4 flex">
+            <input type="text" id="searchInput" class="w-full p-2 border rounded mt-32" placeholder="Search by disability...">
+            <button onclick="searchMentor()" class="bg-green-500 text-white p-2 rounded mx-2 mt-32">Search</button>
+        </div>
+
+        <!-- Mentor Cards -->
+        <div id="mentorCards" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <!-- Mentor Cards will be dynamically added here -->
+        </div>
+    </div>
+
+    <!-- Sample Mentor Card Template (Hidden) -->
+    <div id="mentorCardTemplate" class="hidden">
+        <div class="card">
+           <a href="./webrtc-videocall-javascript-master (2)/webrtc-videocall-javascript-master/webrtc-videocall-javascript-master/sender/sender.html"> <img class="card-img-top" src="./img/mentor_photo.jpg" width="100px" height="200px" alt="Card image cap"></a>
+            <div class="card-body">
+                <h2 class="text-xl font-bold mb-2">Mentor Name</h2>
+                <p class="text-gray-700 mb-2">Qualification: Mentor Qualification</p>
+                <p class="text-gray-700 mb-2">Disability Status: Mentor Disability Status</p>
+                <p class="text-gray-700 mb-2">Skilled/Motivator: Mentor Skill/Motivator</p>
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- Include Tailwind CSS and JS -->
+    <script src="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.js"></script>
+
+    <script>
+        // Sample data (replace with your actual data)
+        const mentors = [
+            { name: "Vinesh Jadhav", photo: "./img/mentor_photo.jpg", qualification: "Ph.D.", disability: "Visual Impairment", role: "Skilled" },
+            { name: "Jane Smith", photo: "./img/mentor_photo.jpg", qualification: "M.Sc.", disability: "Mobility Impairment", role: "Motivator" },
+            { name: "Rahul Sharma", photo: "./img/mentor_photo.jpg", qualification: "C.A.", disability: "Autism", role: "Skilled" },
+            { name: "Shrushti Yadav", photo: "./img/mentor_photo.jpg", qualification: "MBBS", disability: "Visual Impairment", role: "Motivator" },
+            { name: "Abdul Khan", photo: "./img/mentor_photo.jpg", qualification: "LLB", disability: "Mobility Impairment", role: "Counsellor" },
+            { name: "Oswald Fernandes", photo: "./img/mentor_photo.jpg", qualification: "Ph.D.", disability: "Speech Impairment", role: "Skilled" },
+            { name: "Guru Bhatt", photo: "./img/mentor_photo.jpg", qualification: "M.Com.", disability: "Learning Disability", role: "Counsellor" },
+            { name: "John Doe", photo: "./img/mentor_photo.jpg", qualification: "M.A.", disability: "Deaf/Dumb", role: "Skilled" }
+            // Add more mentor data as needed
+        ];
+
+        // Function to display mentor cards based on the search query
+        function searchMentor() {
+            const searchInput = document.getElementById('searchInput').value.toLowerCase();
+            const mentorCardsContainer = document.getElementById('mentorCards');
+            mentorCardsContainer.innerHTML = '';
+
+            mentors.forEach(mentor => {
+                if (mentor.disability.toLowerCase().includes(searchInput)) {
+                    // Clone the mentor card template
+                    const mentorCardTemplate = document.getElementById('mentorCardTemplate');
+                    const mentorCardClone = mentorCardTemplate.cloneNode(true);
+                    mentorCardClone.classList.remove('hidden');
+
+                    // Update mentor card details
+                    mentorCardClone.querySelector('img').src = mentor.photo;
+                    mentorCardClone.querySelector('h2').textContent = mentor.name;
+                    mentorCardClone.querySelector('p:nth-child(2)').textContent = `Qualification: ${mentor.qualification}`;
+                    mentorCardClone.querySelector('p:nth-child(3)').textContent = `Disability Status: ${mentor.disability}`;
+                    mentorCardClone.querySelector('p:nth-child(4)').textContent = `Skilled/Motivator: ${mentor.role}`;
+
+                    // Append the mentor card to the container
+                    mentorCardsContainer.appendChild(mentorCardClone);
+                }
+            });
+        }
+
+        // Initial display of mentor cards
+        searchMentor();
+    </script>
+</body>
+</html>
