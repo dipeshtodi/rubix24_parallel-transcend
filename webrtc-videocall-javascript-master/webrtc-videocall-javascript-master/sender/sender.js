@@ -1,107 +1,117 @@
-const webSocket = new WebSocket("ws://127.0.0.1:3000")
+const webSocket = new WebSocket("ws://127.0.0.1:3000");
 
 webSocket.onmessage = (event) => {
-    handleSignallingData(JSON.parse(event.data))
-}
+    handleSignallingData(JSON.parse(event.data));
+};
 
 function handleSignallingData(data) {
     switch (data.type) {
         case "answer":
-            peerConn.setRemoteDescription(data.answer)
-            break
+            peerConn.setRemoteDescription(new RTCSessionDescription(data.answer));
+            break;
         case "candidate":
-            peerConn.addIceCandidate(data.candidate)
+            peerConn.addIceCandidate(new RTCIceCandidate(data.candidate));
+            break;
     }
 }
 
-let username
-function sendUsername() {
+let username;
 
-    username = document.getElementById("username-input").value
+function sendUsername() {
+    username = document.getElementById("username-input").value;
     sendData({
-        type: "store_user"
-    })
+        type: "store_user",
+    });
 }
 
 function sendData(data) {
-    data.username = username
-    webSocket.send(JSON.stringify(data))
+    data.username = username;
+    webSocket.send(JSON.stringify(data));
 }
 
+let localStream;
+let peerConn;
 
-let localStream
-let peerConn
 function startCall() {
-    document.getElementById("video-call-div")
-    .style.display = "inline"
+    document.getElementById("video-call-div").style.display = "flex";
 
-    navigator.getUserMedia({
-        video: {
-            frameRate: 24,
-            width: {
-                min: 480, ideal: 720, max: 1280
+    navigator.mediaDevices
+        .getUserMedia({
+            video: {
+                frameRate: 24,
+                width: {
+                    min: 480,
+                    ideal: 720,
+                    max: 1280,
+                },
+                aspectRatio: 1.33333,
             },
-            aspectRatio: 1.33333
-        },
-        audio: true
-    }, (stream) => {
-        localStream = stream
-        document.getElementById("local-video").srcObject = localStream
-
-        let configuration = {
-            iceServers: [
-                {
-                    "urls": ["stun:stun.l.google.com:19302", 
-                    "stun:stun1.l.google.com:19302", 
-                    "stun:stun2.l.google.com:19302"]
-                }
-            ]
-        }
-
-        peerConn = new RTCPeerConnection(configuration)
-        peerConn.addStream(localStream)
-
-        peerConn.onaddstream = (e) => {
-            document.getElementById("remote-video")
-            .srcObject = e.stream
-        }
-
-        peerConn.onicecandidate = ((e) => {
-            if (e.candidate == null)
-                return
-            sendData({
-                type: "store_candidate",
-                candidate: e.candidate
-            })
+            audio: true,
         })
+        .then((stream) => {
+            localStream = stream;
+            document.getElementById("local-video").srcObject = localStream;
 
-        createAndSendOffer()
-    }, (error) => {
-        console.log(error)
-    })
+            let configuration = {
+                iceServers: [
+                    {
+                        urls: [
+                            "stun:stun.l.google.com:19302",
+                            "stun:stun1.l.google.com:19302",
+                            "stun:stun2.l.google.com:19302",
+                        ],
+                    },
+                ],
+            };
+
+            peerConn = new RTCPeerConnection(configuration);
+            localStream.getTracks().forEach((track) => {
+                peerConn.addTrack(track, localStream);
+            });
+
+            peerConn.ontrack = (e) => {
+                document.getElementById("remote-video").srcObject = e.streams[0];
+            };
+
+            peerConn.onicecandidate = (e) => {
+                if (e.candidate == null) return;
+                sendData({
+                    type: "store_candidate",
+                    candidate: e.candidate,
+                });
+            };
+
+            createAndSendOffer();
+        })
+        .catch((error) => {
+            console.error("Error accessing camera and microphone:", error);
+        });
 }
 
 function createAndSendOffer() {
-    peerConn.createOffer((offer) => {
-        sendData({
-            type: "store_offer",
-            offer: offer
+    peerConn.createOffer()
+        .then((offer) => {
+            return peerConn.setLocalDescription(offer);
         })
-
-        peerConn.setLocalDescription(offer)
-    }, (error) => {
-        console.log(error)
-    })
+        .then(() => {
+            sendData({
+                type: "store_offer",
+                offer: peerConn.localDescription,
+            });
+        })
+        .catch((error) => {
+            console.error("Error creating and sending offer:", error);
+        });
 }
 
-let isAudio = true
+let isAudio = true;
 function muteAudio() {
-    isAudio = !isAudio
-    localStream.getAudioTracks()[0].enabled = isAudio
+    isAudio = !isAudio;
+    localStream.getAudioTracks()[0].enabled = isAudio;
 }
 
-let isVideo = true
+let isVideo = true;
 function muteVideo() {
-    isVideo = !isVideo
-    localStream.getVideoTracks()[0].enabled = isVideo
+    isVideo = !isVideo;
+    localStream.getVideoTracks()[0].enabled = isVideo;
 }
